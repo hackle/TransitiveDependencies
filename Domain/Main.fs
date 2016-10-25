@@ -20,7 +20,7 @@ module Model =
             | Some f ->             
                 let folder racc cur =
                     findForOne cur (fun rcur -> rcur @ racc)
-                f.To |> List.fold folder f.To
+                f.To |> List.fold folder (cont f.To)
 
         all |> List.map (fun d -> { 
                                     From = d.From; 
